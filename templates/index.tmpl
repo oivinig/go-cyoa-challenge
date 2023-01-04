@@ -1,0 +1,24 @@
+{{template "header.html"}}
+<article class="message is-large is-info">
+	<div class="message-header">
+		<h1 class="title">{{.Title}}</h1>
+	</div>
+	<div class="message-body">
+		{{range $story := .Story}} <p>{{$story}}</p><br>{{end}}
+		
+		<ul>
+		{{if .Options}}
+			{{range $options :=.Options}}
+				<li>
+					<a href="{{$options.Arc}}">{{$options.Text}}</a>
+				</li>
+			{{end}}
+		{{else}}
+			<li>
+				<p>The End!</p>
+			</li>
+		{{end}}
+		</ul>
+	</div>
+</article>
+{{template "footer.html"}}
